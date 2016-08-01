@@ -48,5 +48,6 @@
 
     </LinearLayout>
 
+    <include layout="@layout/ad_layout"/>
 
 </RelativeLayout>

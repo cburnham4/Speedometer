@@ -17,6 +17,8 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 }
             }
         });
+        this.runAds();
     }
 
     @Override
@@ -91,5 +94,20 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onProviderDisabled(String s) {
 
+    }
+
+    private AdsHelper adsHelper;
+    public void runAds(){
+        adsHelper =  new AdsHelper(getWindow().getDecorView(), getResources().getString(R.string.admob_ad_id), this);
+
+        adsHelper.setUpAds();
+        int delay = 1000; // delay for 1 sec.
+        int period = getResources().getInteger(R.integer.ad_refresh_rate);
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                adsHelper.refreshAd();  // display the data
+            }
+        }, delay, period);
     }
 }
