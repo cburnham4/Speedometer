@@ -9,13 +9,19 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    private double multiplicationFactor = 2.236936;
 
     private TextView tvSpeed;
 
@@ -37,17 +43,37 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             return;
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 
         this.onLocationChanged(null);
+
+        Switch switch1 = (Switch) findViewById(R.id.switch1);
+        final TextView tvLabel = (TextView) findViewById(R.id.tvSpeedLabel);
+
+        switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    tvLabel.setText("km/h");
+                    multiplicationFactor = 3.6;
+                } else {
+                    tvLabel.setText("mph");
+                    multiplicationFactor = 2.236936;
+                }
+            }
+        });
     }
 
     @Override
     public void onLocationChanged(Location location) {
-        Toast.makeText(this, "CHANGED" ,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "CHANGED" ,Toast.LENGTH_SHORT).show();
         if(location == null){
             tvSpeed.setText("--.--");
         }else{
-            double speed = location.getSpeed() * 2.236936;
+            double speed = location.getSpeed() * multiplicationFactor;
+            if(speed>100){
+                tvSpeed.setTextSize(72.0f);
+            }
             tvSpeed.setText(String.format(Locale.getDefault(), "%.2f", speed));
         }
     }
