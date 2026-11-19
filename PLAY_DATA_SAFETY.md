@@ -96,8 +96,18 @@ Declare at least:
 
 ---
 
+## AdMob IDs (from console CSV)
+
+| Item | Value |
+|------|-------|
+| App | Speedometer (`ca-app-pub-8223005482588566~4983738731`) |
+| MainActivity banner | Banner Main → `ca-app-pub-8223005482588566/6460471939` |
+
+Debug builds still use Google's official test IDs.
+
 ## Owner TODOs before publish
 
-1. Replace `TODO_*` AdMob app / banner unit IDs in `app/src/main/res/values/admob_ids.xml`  
-2. Complete Data safety + Location permission declarations as above  
-3. Confirm ads policy / UMP messaging in AdMob for this app ID  
+1. Complete Data safety + Location permission declarations as above  
+2. Confirm ads policy / UMP messaging in AdMob for this app ID  
+3. Optionally link package `letshangllc.speedometer` to the Speedometer AdMob app entry  
+

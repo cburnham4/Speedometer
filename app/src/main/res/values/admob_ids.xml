@@ -2,23 +2,22 @@
 <!--
     PRODUCTION AdMob IDs for Speedometer
     Publisher: ca-app-pub-8223005482588566
+    AdMob console app: "Speedometer" (no package linked), App ID ~4983738731
 
-    Real banner unit IDs were not present in this repo (historically lived in
-    gitignored keys.xml). Debug builds override these with Google's official
-    test IDs via app/src/debug/res/values/admob_ids.xml.
+    Debug builds override with Google's official test IDs via
+    app/src/debug/res/values/admob_ids.xml.
 
-    TODO(release): Replace the banner unit ID below with the real AdMob unit
-    from AdMob console before uploading a release AAB/APK.
+    Mapping (CSV from AdMob console):
+    =================================
+    Screen / slot     | AdMob unit name | Resource
+    MainActivity      | Banner Main     | admob_banner_unit_id
 -->
 <resources>
-    <!-- AdMob Application ID (publisher ca-app-pub-8223005482588566). -->
-    <!-- TODO(release): Confirm this app ID matches the Speedometer app in AdMob.
-         Placeholder uses publisher prefix; if you have a distinct ~appId, put it here. -->
-    <string name="admob_app_id">ca-app-pub-8223005482588566~TODO_APP_ID</string>
+    <!-- AdMob Application ID -->
+    <string name="admob_app_id">ca-app-pub-8223005482588566~4983738731</string>
 
-    <!-- Banner ad unit for MainActivity -->
-    <!-- TODO(release): Replace with real banner unit ID from AdMob console -->
-    <string name="admob_banner_unit_id">ca-app-pub-8223005482588566/TODO_BANNER_UNIT_ID</string>
+    <!-- MainActivity bottom banner → "Banner Main" -->
+    <string name="admob_banner_unit_id">ca-app-pub-8223005482588566/6460471939</string>
 
     <!-- How often to refresh the banner (ms). -->
     <integer name="ad_refresh_rate">60000</integer>
