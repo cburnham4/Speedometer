@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Speedometer</string>
-
-
+    <string name="speed_placeholder">--.--</string>
+    <string name="unit_mph">mph</string>
+    <string name="unit_kmh">km/h</string>
+    <string name="location_permission_required">Location permission is required to show your speed.</string>
 </resources>
