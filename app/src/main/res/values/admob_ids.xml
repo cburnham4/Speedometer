@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    PRODUCTION AdMob IDs for Speedometer
+    Publisher: ca-app-pub-8223005482588566
+    AdMob console app: "Speedometer" (no package linked), App ID ~4983738731
+
+    Debug builds override with Google's official test IDs via
+    app/src/debug/res/values/admob_ids.xml.
+
+    Mapping (CSV from AdMob console):
+    =================================
+    Screen / slot     | AdMob unit name | Resource
+    MainActivity      | Banner Main     | admob_banner_unit_id
+-->
+<resources>
+    <!-- AdMob Application ID -->
+    <string name="admob_app_id">ca-app-pub-8223005482588566~4983738731</string>
+
+    <!-- MainActivity bottom banner → "Banner Main" -->
+    <string name="admob_banner_unit_id">ca-app-pub-8223005482588566/6460471939</string>
+
+    <!-- How often to refresh the banner (ms). -->
+    <integer name="ad_refresh_rate">60000</integer>
+</resources>
